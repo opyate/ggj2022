@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         FindObjectOfType<Scenery>().FinishedOpening.AddListener(UnlockPlayer);
-        FindObjectOfType<LevelEnd>().LevelEndTriggered.AddListener(LockPlayer);
+        foreach (LevelEnd end in FindObjectsOfType<LevelEnd>())
+        {
+            end.LevelEndTriggered.AddListener(LockPlayer);
+        }
         LockPlayer();
     }
 
