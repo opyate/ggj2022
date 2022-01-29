@@ -26,8 +26,8 @@ public class Scenery : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateUpAngle, 0, 0);
         Source = GetComponent<AudioSource>();
-        StartLevel();
     }
 
     // Update is called once per frame
@@ -75,5 +75,14 @@ public class Scenery : MonoBehaviour
         SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateDownAngle, 0, 0);
         Source.clip = ClosingEffect;
         Source.Play();
+    }
+    
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+
     }
 }
