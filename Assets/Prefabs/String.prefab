@@ -40,7 +40,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4491353006440607512}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
@@ -127,7 +127,7 @@ LineRenderer:
     alignment: 0
     textureMode: 1
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!114 &8584632316071848626
