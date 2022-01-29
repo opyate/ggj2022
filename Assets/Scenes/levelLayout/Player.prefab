@@ -111,7 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalSpeed: 7
   JumpForce: 250
-  MaximumJumpSearch: 0
+  MaximumJumpSearch: 0.6
+  CanMove: 0
+  ClipGroup: {fileID: 11400000, guid: de2e715d4ba56fc4cad0b7d385e5d7d0, type: 2}
 --- !u!54 &2296117800064554962
 Rigidbody:
   m_ObjectHideFlags: 0

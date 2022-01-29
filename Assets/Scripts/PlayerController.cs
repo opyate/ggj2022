@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>(); //Find the rigidbody attched to the player
 
         FindObjectOfType<Scenery>().FinishedOpening.AddListener(UnlockPlayer); //unlock the player whenever the scenery finishes opening
+        Source = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        RaycastHit hit;
         if (CanMove)
         {
             float Horizontal = Input.GetAxis("Horizontal");
 
             rb.velocity = new Vector3(Horizontal * -HorizontalSpeed, rb.velocity.y, 0);
-
-            RaycastHit hit;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Physics.Raycast(transform.position, Vector3.down, out hit, MaximumJumpSearch))
@@ -48,15 +48,24 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
 
-        if (rb.velocity.x != 0)
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, MaximumJumpSearch))
         {
-            if (!Source.isPlaying)
+            if (Mathf.Abs(rb.velocity.x) > 0.5)
             {
-                Source.clip = ClipGroup.GetClip();
-                Source.pitch = Random.Range(ClipGroup.MinPitch, ClipGroup.MaxPitch);
-                Source.Play();
+                if (!Source.isPlaying)
+                {
+                    Source.clip = ClipGroup.GetClip();
+                    Source.pitch = Random.Range(ClipGroup.MinPitch, ClipGroup.MaxPitch);
+                    Source.Play();
+                }
             }
         }
+        else
+        {
+            Source.Stop();
+        }
+
+
     }
 
     public void LockPlayer()
