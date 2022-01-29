@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class KillPlane : MonoBehaviour
 {
-    public GameObject l;
 
-        private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        l.GetComponent<Lives>().takeLives();
-
-        if (l.GetComponent<Lives>().getLives() <= 0)
+        Destroy(collision.gameObject);
+        SceneTransitionManager.Instance.Lives -= 1;
+        if (SceneTransitionManager.Instance.Lives == 0)
         {
-            PlayerPrefs.DeleteKey("Lives");
+            SceneTransitionManager.Instance.Lives = SceneTransitionManager.Instance.MaxLives;
             SceneTransitionManager.Instance.LoadScene("Level1");
         }
         else

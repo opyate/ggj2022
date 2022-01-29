@@ -12,6 +12,9 @@ public class SceneTransitionManager : MonoBehaviour
 
     private string NextScene;
 
+    public int MaxLives;
+    public int Lives;
+
     private void Awake()
     {
         if (Instance != null)
@@ -81,10 +84,5 @@ public class SceneTransitionManager : MonoBehaviour
     public void SceneReloadReady()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }
