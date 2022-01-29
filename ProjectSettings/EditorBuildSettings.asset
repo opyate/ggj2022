@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EasyKeyLevel.unity
     guid: 8085e88b9732df84e830e83aa871ac45
+  - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: a88de89530c75f04db2c24ec072d8a31
+  - enabled: 1
+    path: Assets/Scenes/Level9.unity
+    guid: a5cc57a209b0b784a9fb857c86f33422
+  - enabled: 1
+    path: Assets/Scenes/Level10.unity
+    guid: 1dc86db2b9aef03469c92cc64cdc5283
   m_configObjects: {}
