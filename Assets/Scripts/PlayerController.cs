@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -12,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public bool CanMove;
 
     private Rigidbody rb;
+
+    [Header("Audio")]
+    public AudioGroupSO ClipGroup;
+    private AudioSource Source;
 
     void Start()
     {
@@ -40,6 +46,16 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
+
+        if (rb.velocity.x != 0)
+        {
+            if (!Source.isPlaying)
+            {
+                Source.clip = ClipGroup.GetClip();
+                Source.pitch = Random.Range(ClipGroup.MinPitch, ClipGroup.MaxPitch);
+                Source.Play();
+            }
         }
     }
 

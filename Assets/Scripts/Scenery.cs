@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class Scenery : MonoBehaviour
 {
     public float SceneryRotateUpAngle = -88;
@@ -17,9 +18,15 @@ public class Scenery : MonoBehaviour
     public UnityEvent FinishedOpening;
     public UnityEvent FinishedClosing;
 
+    [Header("Audio")]
+    private AudioSource Source;
+    public AudioClip OpeningEffect;
+    public AudioClip ClosingEffect;
+
     // Start is called before the first frame update
     void Start()
     {
+        Source = GetComponent<AudioSource>();
         StartLevel();
     }
 
@@ -57,7 +64,8 @@ public class Scenery : MonoBehaviour
         Opening = true;
         RotateStartTime = Time.time;
         SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateUpAngle, 0, 0);
-        //rotate down
+        Source.clip = OpeningEffect;
+        Source.Play();
     }
 
     public void EndLevel()
@@ -65,6 +73,7 @@ public class Scenery : MonoBehaviour
         Closing = true;
         RotateStartTime = Time.time;
         SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateDownAngle, 0, 0);
-        //rotate back up again
+        Source.clip = ClosingEffect;
+        Source.Play();
     }
 }
