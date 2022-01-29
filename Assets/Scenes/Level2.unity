@@ -776,6 +776,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2296117800064554957, guid: 841a09c95b07dca4ba02eae802cc3a2c, type: 3}
+      propertyPath: ClipGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: de2e715d4ba56fc4cad0b7d385e5d7d0, type: 2}
+    - target: {fileID: 2296117800064554957, guid: 841a09c95b07dca4ba02eae802cc3a2c, type: 3}
       propertyPath: MaximumJumpSearch
       value: 0.6
       objectReference: {fileID: 0}

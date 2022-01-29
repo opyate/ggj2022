@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f4846d51a451345be5f944d8c6fd9d, type: 3}
   m_Name: PlayerFootsteps
   m_EditorClassIdentifier: 
-  Clips: []
-  MaxPitch: 1
-  MinPitch: 1
+  Clips:
+  - {fileID: 8300000, guid: ba4df47011f50a6478d1ee3162018dcd, type: 3}
+  - {fileID: 8300000, guid: 781ad99f8c8b05945b40329a3875c867, type: 3}
+  - {fileID: 8300000, guid: b3eb5aeeaa64eda48bed2a63e43b606e, type: 3}
+  - {fileID: 8300000, guid: 6f5b74ba85eaf9f4c83f6124b600d7fc, type: 3}
+  - {fileID: 8300000, guid: 1eee13fffd5030b4896b6859dd67d215, type: 3}
+  - {fileID: 8300000, guid: 88556a3a490c02a448167ffe5aec1945, type: 3}
+  - {fileID: 8300000, guid: 43e652e4689b1d447aefc1df996cf4db, type: 3}
+  MaxPitch: 0.9
+  MinPitch: 1.1
