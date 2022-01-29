@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class KillPlane : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public GameObject l;
+
+        private void OnCollisionEnter(Collision collision)
     {
-        SceneTransitionManager.Instance.ReloadScene();
+        l.GetComponent<Lives>().takeLives();
+
+        if (l.GetComponent<Lives>().getLives() <= 0)
+        {
+            PlayerPrefs.DeleteKey("Lives");
+            SceneTransitionManager.Instance.LoadScene("Level1");
+        }
+        else
+        {
+            SceneTransitionManager.Instance.ReloadScene();
+        }
     }
 }
