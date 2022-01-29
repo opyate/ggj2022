@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8429270831979387498}
   - component: {fileID: 4851804772522415567}
   - component: {fileID: 7255833319322853637}
+  - component: {fileID: 6496090945582744301}
+  - component: {fileID: 373970478310147346}
+  - component: {fileID: 6272515554939532334}
   m_Layer: 0
   m_Name: cardboard_background
   m_TagString: Untagged
@@ -81,3 +84,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6496090945582744301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201163576155373776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.003952, y: 0.4, z: 1.0106666}
+  m_Center: {x: 3.5390553, y: 0.040546253, z: 0.5053333}
+--- !u!65 &373970478310147346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201163576155373776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.003952, y: 0.4, z: 1.0106666}
+  m_Center: {x: 3.5390553, y: 0.040546253, z: 13.49}
+--- !u!65 &6272515554939532334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201163576155373776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9820281, y: 0.45, z: 14}
+  m_Center: {x: 0.5280934, y: 0.040546253, z: 7}
