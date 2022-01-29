@@ -15,13 +15,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        FindObjectOfType<Scenery>().FinishedOpening.AddListener(UnlockPlayer);
-        foreach (LevelEnd end in FindObjectsOfType<LevelEnd>())
-        {
-            end.LevelEndTriggered.AddListener(LockPlayer);
-        }
-        LockPlayer();
+        rb = GetComponent<Rigidbody>(); //Find the rigidbody attched to the player
+
+        FindObjectOfType<Scenery>().FinishedOpening.AddListener(UnlockPlayer); //unlock the player whenever the scenery finishes opening
     }
 
     void Update()
@@ -32,9 +28,6 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = new Vector3(Horizontal * -HorizontalSpeed, rb.velocity.y, 0);
 
-            //need to do a ground check
-            //..
-            //raycast? seems like a good idea
             RaycastHit hit;
             if (Input.GetKeyDown(KeyCode.Space))
             {

@@ -8,27 +8,8 @@ public class LevelEnd : MonoBehaviour
 {
     public string NextLevel;
 
-    private Scenery scenery;
-
-    public UnityEvent LevelEndTriggered;
-
-    private void Start()
-    {
-        scenery = FindObjectOfType<Scenery>();
-        scenery.FinishedClosing.AddListener(SwitchLevel);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        
-        scenery.EndLevel();
-        LevelEndTriggered.Invoke();
+        SceneTransitionManager.Instance.LoadScene(NextLevel);
     }
-
-    public void SwitchLevel()
-    {
-        SceneManager.LoadScene(NextLevel);
-    }
-
-
 }
