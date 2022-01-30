@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
     public Texture amus;
     public GameObject RenderingChild;
 
+    public float WalkAngle;
+    public float WalkTime;
+    private float LastSwitchTime;
+    public GameObject RotationChild;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //Find the rigidbody attched to the player
@@ -78,6 +83,37 @@ public class PlayerController : MonoBehaviour
         else
         {
             Source.Stop();
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, MaximumJumpSearch))
+        {
+
+
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {//player is holding a key
+                if (Time.time - LastSwitchTime > WalkTime)
+                {
+                    if (RotationChild.transform.rotation.z > 0)
+                    {
+                        RotationChild.transform.rotation = Quaternion.Euler(0, 0, -WalkAngle);
+                        LastSwitchTime = Time.time;
+
+                    }
+                    else
+                    {
+                        RotationChild.transform.rotation = Quaternion.Euler(0, 0, WalkAngle);
+                        LastSwitchTime = Time.time;
+                    }
+                }
+            }
+            else
+            {//no keys are being held
+                RotationChild.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        else
+        {//no keys are being held
+            RenderingChild.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
 
