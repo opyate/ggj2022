@@ -9,7 +9,7 @@ public class KillPlane : MonoBehaviour
     {
         Destroy(collision.gameObject);
         SceneTransitionManager.Instance.Lives -= 1;
-        if (SceneTransitionManager.Instance.Lives == 0)
+        if (SceneTransitionManager.Instance.Lives < 0)
         {
             SceneTransitionManager.Instance.Lives = SceneTransitionManager.Instance.MaxLives;
             SceneTransitionManager.Instance.LoadScene("Level1");

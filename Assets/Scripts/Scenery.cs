@@ -31,6 +31,7 @@ public class Scenery : MonoBehaviour
     {
         SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateUpAngle, 0, 0);
         Source = GetComponent<AudioSource>();
+        SetHeartAmount(SceneTransitionManager.Instance.Lives);
     }
 
     // Update is called once per frame
