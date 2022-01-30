@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [Header("Audio")]
     public AudioGroupSO ClipGroup;
     private AudioSource Source;
+    public AudioClip JumpSound;
 
     public Texture main;
     public Texture amus;
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
                 {
                     rb.AddForce(Vector3.up * JumpForce);
                 }
+                Source.clip = JumpSound;
+                Source.Play();
             }
         }
         else
@@ -79,10 +82,6 @@ public class PlayerController : MonoBehaviour
                     Source.Play();
                 }
             }
-        }
-        else
-        {
-            Source.Stop();
         }
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, MaximumJumpSearch))
