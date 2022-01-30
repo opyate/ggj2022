@@ -26,6 +26,8 @@ public class Scenery : MonoBehaviour
     [Header("Hearts")]
     public GameObject[] HeartObjects;
 
+    bool canPlay = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,17 +61,29 @@ public class Scenery : MonoBehaviour
             {
                 Closing = false;
                 FinishedClosing.Invoke();
+                canPlay = true;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartLevel();
         }
     }
 
-    public void StartLevel() 
+    public void StartLevel()
     {
-        Opening = true;
-        RotateStartTime = Time.time;
-        SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateUpAngle, 0, 0);
-        Source.clip = OpeningEffect;
-        Source.Play();
+        if (canPlay)
+        {
+
+
+            Opening = true;
+            RotateStartTime = Time.time;
+            SceneryRotator.transform.rotation = Quaternion.Euler(SceneryRotateUpAngle, 0, 0);
+            Source.clip = OpeningEffect;
+            Source.Play();
+            canPlay = false;
+        }
     }
 
     public void EndLevel()
