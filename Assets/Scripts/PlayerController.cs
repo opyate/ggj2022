@@ -19,16 +19,31 @@ public class PlayerController : MonoBehaviour
     public AudioGroupSO ClipGroup;
     private AudioSource Source;
 
+    public Texture main;
+    public Texture amus;
+    public GameObject RenderingChild;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>(); //Find the rigidbody attched to the player
 
         FindObjectOfType<Scenery>().FinishedOpening.AddListener(UnlockPlayer); //unlock the player whenever the scenery finishes opening
         Source = GetComponent<AudioSource>();
+
+
+        if (Random.Range(0, 10) < 1)
+        {
+            RenderingChild.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_MainTex", amus);
+        }
+        else
+        {
+            RenderingChild.GetComponent<MeshRenderer>().sharedMaterial.SetTexture("_MainTex", main);
+        }
     }
 
     void Update()
     {
+        
         RaycastHit hit;
         if (CanMove)
         {
