@@ -13,7 +13,8 @@ public class SceneTransitionManager : MonoBehaviour
     private string NextScene;
 
     public int MaxLives;
-    public int Lives;
+    public int Lives { get { return this.InternalLives; } set { this.InternalLives = value; scenery.SetHeartAmount(InternalLives); } }
+    private int InternalLives;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class SceneTransitionManager : MonoBehaviour
         }
 
         player.LockPlayer();
+        Lives = MaxLives;
     }
 
     private void OnLevelWasLoaded(int level)

@@ -23,6 +23,9 @@ public class Scenery : MonoBehaviour
     public AudioClip OpeningEffect;
     public AudioClip ClosingEffect;
 
+    [Header("Hearts")]
+    public GameObject[] HeartObjects;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,5 +87,20 @@ public class Scenery : MonoBehaviour
 #endif
         Application.Quit();
 
+    }
+
+    public void SetHeartAmount(int Amount)
+    {
+        for (int i = 0; i < HeartObjects.Length; i++)
+        {
+            if (i < Amount)
+            {
+                HeartObjects[i].SetActive(true);
+            }
+            else
+            {
+                HeartObjects[i].SetActive(false);
+            }
+        }
     }
 }
